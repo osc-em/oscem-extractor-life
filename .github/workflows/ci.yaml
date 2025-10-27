@@ -57,7 +57,7 @@ jobs:
         go test -json -v ./... | tee gotestservice-${{ matrix.build.goos }}-${{ matrix.build.goarch }}.log | gotestfmt
 
     - name: Upload Test Log
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: success()
       with:
         name: service-test-log-${{ matrix.build.goos }}-${{ matrix.build.goarch }}
