@@ -20,8 +20,8 @@ builds:
       - linux
       - windows
       - darwin
-    main: ./cmd/LS_Metadata_reader/
-    
+    main: ./cmd/oscem-extractor-life/
+
 
 archives:
   - format: tar.gz
@@ -37,7 +37,7 @@ archives:
     format_overrides:
       - goos: windows
         format: zip
-    files: 
+    files:
       - LICENSE
       - README.md
 

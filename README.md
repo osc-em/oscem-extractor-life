@@ -1,4 +1,4 @@
-# LS Metadata extractor
+# Life Sciences Metadata extractor
 
 Extract metadata from common life-science electron microscopy data in
 [OSC-EM](https://github.com/osc-em) format.
@@ -12,7 +12,7 @@ Extract metadata from common life-science electron microscopy data in
 ## Installation
 
 Binaries for Mac, Linux, and Windows can be downloaded from our
-[releases](https://github.com/SwissOpenEM/LS_Metadata_reader/releases) page.
+[releases](https://github.com/osc-em/oscem-extractor-life/releases) page.
 
 You can run with docker using the latest image like:
 
@@ -23,8 +23,8 @@ docker run --rm -v $PWD:/data -w /data oscem-life:latest -o out.json tutorial
 Alternately, you can compile from source by running:
 
 ```sh
-cd cmd/LS_Metadata_reader
-go build -o LS_metadata_reader .
+cd cmd/oscem-extractor-life
+go build -o oscem-extractor-life .
 ```
 
 ### MacOS
@@ -35,7 +35,7 @@ directly from Github this executable should be safe to run. You can bypass the w
 by running the command:
 
 ```sh
-xattr -d com.apple.quarantine LS_Metadata_reader
+xattr -d com.apple.quarantine oscem-extractor-life
 ```
 
 ### SerialEM
@@ -61,15 +61,15 @@ configuration file, but can also be added at the command line using parameters.
 A wizard is available to walk through creating the configuration file. Run it using
 
 ```sh
-LS_Metadata_reader --c
+oscem-extractor-life --c
 ```
 
 The configuration file is saved in the following locations depending on your platform:
 
-- Unix: `$XDG_CONFIG_HOME/LS_Metadata_reader/LS_reader.conf` (usually
-  `$HOME/.config/LS_Metadata_reader/LS_reader.conf`)
-- MacOS: `$HOME/Library/Application Support/LS_Metadata_reader/LS_reader.conf`
-- Windows: `%AppData%\LS_Metadata_reader\LS_reader.conf`
+- Unix: `$XDG_CONFIG_HOME/oscem-extractor-life/oscem-extractor-life.conf` (usually
+  `$HOME/.config/oscem-extractor-life/oscem-extractor-life.conf`)
+- MacOS: `$HOME/Library/Application Support/oscem-extractor-life/oscem-extractor-life.conf`
+- Windows: `%AppData%\oscem-extractor-life\oscem-extractor-life.conf`
 
 Config values can also be set using the command line flags:
 
@@ -80,14 +80,14 @@ Config values can also be set using the command line flags:
 | MPCPATH            | `--epu`              |          | Path to EPU metadata directory                                |
 
 EPU writes its metadata files in a different directory than its actual data (TOMO5 also
-keeps some additional info that is processed by the LS_Metadata_reader there). It
+keeps some additional info that is processed by the oscem-extractor-life there). It
 generates another set of folders, usually on the microscope controlling computer, that
 mirror its OffloadData folders in directory structure. Within them it stores some
 related information, including the metadata xml files. If `--epu` is defined as a flag
-or in the config, the LS_Metadata_reader will directly grab those when the user points
+or in the config, the oscem-extractor-life will directly grab those when the user points
 it at a OffloadData directory.
 *NOTE: This requires you to mount the microscope computer directory for EPU on the
-machine you are running LS_Metadata_reader on, as those are most likely NOT the same.
+machine you are running oscem-extractor-life on, as those are most likely NOT the same.
 The extractor will work regardless if pointed to the xmls/mdocs directly, this is just
 for convenience.*
 
@@ -104,7 +104,7 @@ The reader should be called with the path to a folder containing the xml (EPU/TO
 mdoc (SerialEM) files.
 
 ```sh
-./LS_Metadata_reader -o tutorial_oscem.json tutorial/
+./oscem-extractor-life -o tutorial_oscem.json tutorial/
 ```
 
 For testing, try the associated [tutorial](tutorial/) folder; an example of how the
@@ -138,9 +138,9 @@ including the following in your ingestor configuration file:
 MetadataExtractors:
   - Name: LS
     GithubOrg: SwissOpenEM
-    GithubProject: LS_Metadata_reader
+    GithubProject: oscem-extractor-life
     Version: v0.3.0
-    Executable: LS_Metadata_reader
+    Executable: oscem-extractor-life
     Checksum: 805fd036f2c83284b2cd70f2e7f3fafbe17bc750d2156f604c1505f7d5791d75
     ChecksumAlg: sha256
     CommandLineTemplate: "-i '{{.SourceFolder}}' -o '{{.OutputFile}}'"
@@ -155,14 +155,14 @@ MetadataExtractors:
         Schema: oscem_env_tomo.json
 ```
 
-This will automatically download and install the LS_Metadata_extractor with the
+This will automatically download and install the oscem-extractor-life with the
 specified version.
 
 ## Schema
 
-Output is compatible with [OSCEM schemas](https://github.com/osc-em/OSCEM_Schemas/).
+Output is compatible with [OSCEM schemas](https://github.com/osc-em/oscem-schemas).
 
 Specific schema used to generate standard schema conform output (works for SPA and
 Tomography):
-<https://github.com/osc-em/OSCEM_Schemas/blob/linkml_yaml/src/oscem_schemas/schema/oscem_schemas_tomo.yaml>
+<https://github.com/osc-em/oscem-schemas/blob/linkml_yaml/src/oscem_schemas/schema/oscem_schemas_tomo.yaml>
 with LinkML gen-golang
