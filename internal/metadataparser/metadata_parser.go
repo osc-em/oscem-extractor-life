@@ -17,7 +17,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/SwissOpenEM/LS_Metadata_reader/internal/configuration"
+	"github.com/osc-em/oscem-extractor-life/internal/configuration"
 
 	"golang.org/x/exp/mmap"
 )

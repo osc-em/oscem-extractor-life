@@ -11,7 +11,7 @@
         "-gcflags",
         "all=-N -l",
 				"-o",
-        "build/bin/LS_metadata_reader"
+        "build/bin/oscem-extractor-life"
 			],
 			"problemMatcher": [
 				"$go"

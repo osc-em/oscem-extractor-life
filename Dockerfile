@@ -14,9 +14,9 @@ COPY ./internal ./internal
 
 RUN CGO_ENABLED=0 GOOS=linux \
     go build \
-    -C cmd/LS_Metadata_reader \
+    -C cmd/oscem-extractor-life \
     -ldflags="-s -w -X 'main.version=${VERSION}'" \
-    -o /src/LS_Metadata_reader \
+    -o /src/oscem-extractor-life \
     .
 
 # Runtime stage
@@ -25,10 +25,10 @@ FROM alpine:3.19
 RUN apk add --no-cache ca-certificates
 
 # Copy binary from builder
-COPY --from=builder /src/LS_Metadata_reader /usr/local/bin/LS_Metadata_reader
+COPY --from=builder /src/oscem-extractor-life /usr/local/bin/oscem-extractor-life
 
 # Run as non-root
-RUN adduser -D -g '' appuser && chown appuser:appuser /usr/local/bin/LS_Metadata_reader
+RUN adduser -D -g '' appuser && chown appuser:appuser /usr/local/bin/oscem-extractor-life
 USER appuser
 
-ENTRYPOINT ["/usr/local/bin/LS_Metadata_reader"]
+ENTRYPOINT ["/usr/local/bin/oscem-extractor-life"]

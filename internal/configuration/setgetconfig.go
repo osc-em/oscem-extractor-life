@@ -16,7 +16,7 @@ func Getconfig() ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	destination := filepath.Join("LS_Metadata_reader", "LS_reader.conf")
+	destination := filepath.Join("oscem-extractor-life", "oscem-extractor-life.conf")
 	configFilePath := filepath.Join(path, destination)
 
 	_, err1 := os.Stat(configFilePath)
@@ -36,9 +36,9 @@ func Changeconfig() {
 	if err != nil {
 		fmt.Println("Couldn't reach config directory", err)
 	}
-	destination := filepath.Join("LS_Metadata_reader", "LS_reader.conf")
+	destination := filepath.Join("oscem-extractor-life", "oscem-extractor-life.conf")
 	configFilePath := filepath.Join(path, destination)
-	configdir := filepath.Join(path, "LS_Metadata_reader")
+	configdir := filepath.Join(path, "oscem-extractor-life")
 	_, err1 := os.Stat(configdir)
 	if err1 != nil {
 		if os.IsNotExist(err1) {
