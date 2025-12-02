@@ -5,11 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug LS_Metadata_reader",
+            "name": "Debug oscem-extractor-life",
             "type": "go",
             "request": "launch",
             "mode": "exec",
-            "program": "${workspaceFolder}/build/bin/LS_metadata_reader",
+            "program": "${workspaceFolder}/build/bin/oscem-extractor-life",
             "preLaunchTask": "build metadata reader",
             "cwd": "${workspaceFolder}/build/bin",
             "env": {},
@@ -25,7 +25,7 @@
                     "2.7",
                     "--param2",
                     "none",
-                    "--i", 
+                    "--i",
                     "${workspaceFolder}/tests/combine/"
                     ]*/
            /*"args": [
@@ -36,7 +36,7 @@
                     "2.7",
                     "--param2",
                     "none",
-                    "--i", 
+                    "--i",
                     "${workspaceFolder}/tests/xml/"
             ]*/
             /*"args": [
@@ -47,7 +47,7 @@
                 "2.7",
                 "--param2",
                 "none",
-                "--i", 
+                "--i",
                 "${workspaceFolder}/tests/mdocs/"
             ]*/
             /*"args": [
@@ -58,7 +58,7 @@
                 "2.7",
                 "--param2",
                 "none",
-                "--i", 
+                "--i",
                 "${workspaceFolder}/tests/mdocspa/"
                 ]*/
         }

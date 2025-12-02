@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/SwissOpenEM/LS_Metadata_reader/internal/configuration"
-	"github.com/SwissOpenEM/LS_Metadata_reader/internal/metadataparser"
+	"github.com/osc-em/oscem-extractor-life/internal/configuration"
+	"github.com/osc-em/oscem-extractor-life/internal/metadataparser"
 
-	conversion "github.com/osc-em/Converter"
+	conversion "github.com/osc-em/oscem-converter-extracted"
 )
 
 func main() {
@@ -52,7 +52,7 @@ func main() {
 	var directory string
 	// Check that there are arguments
 	if len(posArgs) == 0 && *input_folder_path == "" {
-		fmt.Println("No arguments; correct minimum arguments: ./LS_reader <directory>")
+		fmt.Println("No arguments; correct minimum arguments: ./oscem-extractor-life <directory>")
 		return
 	} else if *input_folder_path != "" {
 		directory = *input_folder_path

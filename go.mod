@@ -1,11 +1,11 @@
-module github.com/SwissOpenEM/LS_Metadata_reader
+module github.com/osc-em/oscem-extractor-life
 
 go 1.23.0
 
-//replace github.com/oscem/Converter => ../Converter
+//replace github.com/osc-em/oscem-converter-extracted => ../oscem-converter-extracted
 
 require (
-	github.com/osc-em/Converter v1.0.3
+	github.com/osc-em/oscem-converter-extracted v1.0.4
 	github.com/stretchr/testify v1.11.1
 	golang.org/x/exp v0.0.0-20250506013437-ce4c2cf36ca6
 )
